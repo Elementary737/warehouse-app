@@ -9,23 +9,25 @@
   --accent-border: rgba(170, 59, 255, 0.5);
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
+  --heading: system-ui, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
-  color-scheme: light dark;
   color: var(--text);
   background: var(--bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
-  @media (max-width: 1024px) {
+@media (max-width: 1024px) {
+  :root {
     font-size: 16px;
   }
 }
@@ -42,23 +44,21 @@
     --accent-border: rgba(192, 132, 252, 0.5);
     --social-bg: rgba(47, 48, 58, 0.5);
     --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px,
+      rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
   }
 }
 
 body {
   margin: 0;
+  background: var(--bg);
+  color: var(--text);
 }
 
 #root {
   width: 1126px;
   max-width: 100%;
   margin: 0 auto;
-  text-align: center;
   border-inline: 1px solid var(--border);
   min-height: 100svh;
   display: flex;
@@ -77,20 +77,15 @@ h1 {
   font-size: 56px;
   letter-spacing: -1.68px;
   margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
 }
+
 h2 {
   font-size: 24px;
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
 }
+
 p {
   margin: 0;
 }
@@ -108,4 +103,162 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+  padding: 24px;
+  text-align: left;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+/* =========================
+   CREATE BUTTON
+========================= */
+
+.btn-create {
+  background: var(--accent);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  box-shadow: var(--shadow);
+  transition: 0.2s;
+}
+
+.btn-create:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.table th {
+  text-align: left;
+  padding: 12px;
+  font-weight: 600;
+  color: var(--text-h);
+  border-bottom: 1px solid var(--border);
+}
+
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn {
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.btn-blue {
+  background: var(--accent);
+}
+
+.btn-yellow {
+  background: #facc15;
+  color: #000;
+}
+
+.btn-red {
+  background: #ef4444;
+}
+
+/* =========================
+   FORM
+========================= */
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: white;
+  color: black;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+label {
+  color: var(--text-h);
+  font-weight: 500;
+}
+
+button {
+  font-family: inherit;
+}
+
+input,
+textarea {
+  background: #ffffff !important;
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #666666 !important;
 }
